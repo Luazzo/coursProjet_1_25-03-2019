@@ -2,119 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="406ef8e6-0eb3-4f9b-89a8-6295195252d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/icomoon-social.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/about-us.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/bars.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/blog/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/blog/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/blog/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/blog/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/bx_loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/glyphicons-halflings-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/glyphicons-halflings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/icomoon-social.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/icons/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/icons/linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/icons/rss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/icons/twitter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logos/logo-9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/slides/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/slides/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/slides/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/team/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/team/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/team/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/title-before.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery-1.9.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.easing.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/modernizr-2.6.2-respond-1.1.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/modernizr-custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/scrolling-nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/fos_user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/fos_user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents/RetrationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modernizr-2.6.2-respond-1.1.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Blog.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/News.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Work.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Event/UserRegisteredEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EventListener/RegistrationListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/PostType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/BlogRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ClientRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CommentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ImageRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/NameRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/NewsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/PostRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TagRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/WorkRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Subscriber/UserRegisteredSubscriber.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/symfleronbasica/src/Entity/_User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/footer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/slider.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/post/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/post/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/post/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/post/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/post/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/post/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/RegistrationListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/RegistrationListener.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EventListener/RegistrationListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="36" selection-end-column="34" />
+            <state relative-caret-position="343">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#37#68#0#PHP" expanded="true" />
               </folding>
@@ -203,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="213">
+              <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
               <folding>
                 <element signature="e#89#123#0#PHP" expanded="true" />
                 <element signature="e#2677#2710#1#PHP" expanded="true" />
@@ -287,11 +176,11 @@
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Event/UserRegisteredEvent.php" />
         <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
-        <option value="$PROJECT_DIR$/src/EventListener/RegistrationListener.php" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
         <option value="$PROJECT_DIR$/templates/partials/head.html.twig" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/templates/partials/footer.html.twig" />
+        <option value="$PROJECT_DIR$/src/EventListener/RegistrationListener.php" />
       </list>
     </option>
   </component>
@@ -415,7 +304,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="130" />
     <option name="y" value="130" />
     <option name="width" value="1314" />
@@ -518,12 +407,12 @@
       <workItem from="1555077883761" duration="23432000" />
       <workItem from="1555170209502" duration="7681000" />
       <workItem from="1555188912835" duration="5985000" />
-      <workItem from="1555257571935" duration="38717000" />
+      <workItem from="1555257571935" duration="39401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144532000" />
+    <option name="totallyTimeSpent" value="145216000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -536,6 +425,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49780703" visible="true" weight="0.26863754" />
       <window_info id="Structure" order="1" sideWeight="0.502193" side_tool="true" weight="0.26863754" />
@@ -911,24 +801,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventListener/RegistrationListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="36" selection-end-column="34" />
-          <folding>
-            <element signature="e#37#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        <state relative-caret-position="213">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="e#89#123#0#PHP" expanded="true" />
             <element signature="e#2677#2710#1#PHP" expanded="true" />
             <element signature="e#3261#3303#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventListener/RegistrationListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#37#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

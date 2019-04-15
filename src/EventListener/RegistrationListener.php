@@ -13,11 +13,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class RegistrationListener implements EventSubscriberInterface
 {
-	private $en;
-	public function __construct(EntityManagerInterface $entity)
-	{
-		$this->en=$entity;
-	}
+
 	
 	public static function getSubscribedEvents()
     {
@@ -33,8 +29,6 @@ class RegistrationListener implements EventSubscriberInterface
         /** @var $user \FOS\UserBundle\Model\UserInterface */
         $user = $event->getForm()->getData();
         $user->setRoles($rolesArr);
-        $this->en->flush();
-        $this->en->persist($user);
     	/*dump($user) ;
     	die();*/
     }
