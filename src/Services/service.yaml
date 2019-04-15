@@ -1,0 +1,2 @@
+fos_user.registration.form.factory:
+    class: FOS\UserBundle\Form\Factory\FormFactory

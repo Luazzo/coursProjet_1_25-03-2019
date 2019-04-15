@@ -1,0 +1,11 @@
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: "khabarovsk74@gmail.com"
+        sender_name: "khabarovsk74@gmail.com"
+    registration:
+        form:
+            name: fos_user_registration
+           # type: acme_user_registration
