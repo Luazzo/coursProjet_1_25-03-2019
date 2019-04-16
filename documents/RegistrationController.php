@@ -1,9 +1,10 @@
 <?php
 // src/AppBundle/Controller/RegistrationController.php
 	
-	namespace App\Controller;
+	namespace App\UserBundle\Controller;
 	
 	use App\Event\UserRegisteredEvent;
+	use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 	use Symfony\Component\HttpFoundation\RedirectResponse;
 	use FOS\UserBundle\Controller\RegistrationController as BaseController;
 	use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -15,7 +16,7 @@
 	use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 	use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 	
-	class RegistrationController extends BaseController
+	class RegistrationController extends AbstractController
 	{
 		
 		public function __construct($serviceContainer=null)
@@ -26,6 +27,7 @@
 		
 		public function registerAction(Request $request)
 		{
+			echo "ok"; die();
 			/** @var $formFactory FactoryInterface */
 	        $formFactory = $this->get('fos_user.registration.form.factory');
 	        /** @var $userManager UserManagerInterface */
@@ -53,14 +55,19 @@
 			
 			if ($form->isSubmitted()) {
 				if ($form->isValid()) {
-					$eventRole = new UserRegisteredEvent($user);
-					$dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $eventRole);
+					var_dump($form->getData()); die();
 					
 					$event = new FormEvent($form, $request);
 					$dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 					
+					$eventRole = new UserRegisteredEvent($user);
+					$user = $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $eventRole)->getUser();
 					
-					$userManager->updateUser($user);
+					$user->setRoles(['ROLE_USER']);
+					$objectManager = $this->get('doctrine.orm.default_entity_manager');
+			        $objectManager->persist($user);
+			        $objectManager->flush($user);
+					//$userManager->updateUser($user);
 					
 					/*****************************************************
 					 * Add new functionality (e.g. log the registration) *
@@ -77,7 +84,10 @@
 					$dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 					
 					
-					return $response;
+					return [
+					            'user' => $user,
+								'response' => $response
+							];
 				}
 				
 				$event = new FormEvent($form, $request);
