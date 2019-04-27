@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/blog")
+ * @Route("/blog", name="app_")
  */
 class BlogController extends AbstractController
 {
@@ -26,10 +26,10 @@ class BlogController extends AbstractController
         ]);
     }
     
-    public function list(WorkRepository $workRepository, $nmb): Response
+    public function list(BlogRepository $workRepository, $nmb): Response
     {
         return $this->render('blog/list.html.twig', [
-            'blogs' => $workRepository->find($nmb)
+            'blogs' => $workRepository->findBlogsNmb($nmb)
         ]);
     }
 
