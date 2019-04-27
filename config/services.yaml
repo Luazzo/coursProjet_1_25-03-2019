@@ -8,8 +8,6 @@ parameters:
 
     app.path.works: /uploads/images/works
     app.path.blogs: /uploads/images/blogs
-    app.path.news: /uploads/images/news
-    app.path.pages: /uploads/images/pages
 
 
 services:

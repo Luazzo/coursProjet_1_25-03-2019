@@ -1,0 +1,11 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        works_images:
+            uri_prefix:         '%app.path.works%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.works%'
+
+        blogs_images:
+            uri_prefix:         '%app.path.blogs%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.blogs%'

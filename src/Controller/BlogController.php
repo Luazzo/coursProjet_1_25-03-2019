@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Blog;
+use App\Repository\WorkRepository;
 use App\Form\BlogType;
 use App\Repository\BlogRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +29,7 @@ class BlogController extends AbstractController
     public function list(WorkRepository $workRepository, $nmb): Response
     {
         return $this->render('blog/list.html.twig', [
-            'blogs' => $workRepository->findBlogsNmb($nmb)
+            'blogs' => $workRepository->find($nmb)
         ]);
     }
 
