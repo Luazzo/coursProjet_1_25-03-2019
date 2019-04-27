@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="406ef8e6-0eb3-4f9b-89a8-6295195252d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/coursProjet_1_25-03-2019.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/coursProjet_1_25-03-2019.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BlogRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BlogRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/list.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,31 +45,74 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/page/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/work/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/BlogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="46">
+              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
+                <element signature="e#34#54#0#PHP" expanded="true" />
                 <element signature="e#780#801#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/packages/vich_uploader.yaml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/BlogRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="272">
+              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+        <entry file="file://$PROJECT_DIR$/src/Controller/WorkController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state relative-caret-position="119">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/blog/list.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding>
+                <element signature="e#229#242#0#Twig" expanded="true" />
+                <element signature="e#680#693#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/work/slider.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="153" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="153" />
             </state>
           </provider>
         </entry>
@@ -151,7 +191,6 @@
         <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/basicaSymfony/src/Entity/Page.php" />
         <option value="$PROJECT_DIR$/config/config.yml" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Event/UserRegisteredEvent.php" />
         <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
@@ -161,8 +200,11 @@
         <option value="$PROJECT_DIR$/src/EventListener/RegistrationListener.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/Controller/BlogController.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/config/packages/vich_uploader.yaml" />
+        <option value="$PROJECT_DIR$/src/Repository/BlogRepository.php" />
+        <option value="$PROJECT_DIR$/src/Controller/BlogController.php" />
+        <option value="$PROJECT_DIR$/templates/blog/list.html.twig" />
       </list>
     </option>
   </component>
@@ -355,6 +397,12 @@
             <path>
               <item name="coursProjet_1_25-03-2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="coursProjet_1_25-03-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="coursProjet_1_25-03-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coursProjet_1_25-03-2019" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -362,6 +410,12 @@
               <item name="coursProjet_1_25-03-2019" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="coursProjet_1_25-03-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coursProjet_1_25-03-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="coursProjet_1_25-03-2019" type="b2602c69:ProjectViewProjectNode" />
@@ -451,12 +505,12 @@
       <workItem from="1555170209502" duration="7681000" />
       <workItem from="1555188912835" duration="5985000" />
       <workItem from="1555257571935" duration="39401000" />
-      <workItem from="1556404378813" duration="810000" />
+      <workItem from="1556404378813" duration="2532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146026000" />
+    <option name="totallyTimeSpent" value="147748000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -484,7 +538,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4993573" weight="0.32974428" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4415167" visible="true" weight="0.33109018" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4415167" weight="0.33109018" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5584833" side_tool="true" weight="0.33109018" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -524,8 +578,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/uploads/images/works/5cbe5b7101147277487664.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/uploads/images/works/5cbe5c2724471776569922.jpg" />
     <entry file="file://$PROJECT_DIR$/public/uploads/images/works/5cbe50bbf3d8e479256887.jpg" />
     <entry file="file://$PROJECT_DIR$/public/uploads/images/works/5cc16b5cd8508863983627.jpg" />
     <entry file="file://$PROJECT_DIR$/public/uploads/images/works/5cbe52fec6892486094977.jpg" />
@@ -668,13 +720,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/translations/messages.fr.yaml" />
     <entry file="file://$PROJECT_DIR$/translations/messages.en.yaml" />
-    <entry file="file://$PROJECT_DIR$/templates/work/slider.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="153" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="153" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -729,20 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/page/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Texte.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -760,24 +791,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/work/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="61" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/WorkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/vich_uploader.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -788,27 +819,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/work/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="61" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/work/slider.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="153" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/work/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/page/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/BlogRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/WorkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BlogController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        <state relative-caret-position="46">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
+            <element signature="e#34#54#0#PHP" expanded="true" />
             <element signature="e#780#801#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/blog/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/vich_uploader.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="357">
+          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="e#229#242#0#Twig" expanded="true" />
+            <element signature="e#680#693#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
