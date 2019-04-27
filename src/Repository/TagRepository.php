@@ -20,7 +20,7 @@ class TagRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Tag[] Returns an array of Tag objects
+    //  * @return Tag[] Returns an array of Txt objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TagRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Tag
+    public function findOneBySomeField($value): ?Txt
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

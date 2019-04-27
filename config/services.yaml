@@ -4,8 +4,12 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'fr'
 
+    app.path.works: /uploads/images/works
+    app.path.blogs: /uploads/images/blogs
+    app.path.news: /uploads/images/news
+    app.path.pages: /uploads/images/pages
 
 
 services:
@@ -35,7 +39,7 @@ services:
     app.event_listener.registration_listener:
         class: App\EventListener\RegistrationListener
         arguments:
-               - $ent: '@Doctrine\ORM\EntityManagerInterface'
+            - $ent: '@Doctrine\ORM\EntityManagerInterface'
         tags:
             - { name: kernel.event_subscriber, event: prePersist }
 

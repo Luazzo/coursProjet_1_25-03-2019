@@ -1,8 +1,4 @@
-index:
+app_home:
     path: /
-    controller: App\Controller\PageController::index
+    controller: App\Controller\PageController::home
 
-fos_user.registration:
-    path: /register
-    defaults:
-        _controller: App\Controller\RegistrationController::registerAction

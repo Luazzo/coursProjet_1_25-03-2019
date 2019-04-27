@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
  * @method Work|null find($id, $lockMode = null, $lockVersion = null)
  * @method Work|null findOneBy(array $criteria, array $orderBy = null)
- * @method Work[]    findAll()
+ * @method Work[]    findAll($nmb)
  * @method Work[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class WorkRepository extends ServiceEntityRepository
@@ -18,6 +18,15 @@ class WorkRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Work::class);
     }
+    
+    public function findWorksNmb($nmb){
+    	return $this->createQueryBuilder('w')
+            ->orderBy('w.id', 'ASC')
+            ->setMaxResults($nmb)
+            ->getQuery()
+            ->getResult()
+        ;
+	}
 
     // /**
     //  * @return Work[] Returns an array of Work objects

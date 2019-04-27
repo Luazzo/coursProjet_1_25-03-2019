@@ -2,7 +2,6 @@
 
 namespace App\EventListener;
 
-use Doctrine\ORM\EntityManagerInterface;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -11,8 +10,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class RegistrationListener implements EventSubscriberInterface
 {
-
-	
 	public static function getSubscribedEvents()
     {
         return array(
@@ -24,14 +21,12 @@ class RegistrationListener implements EventSubscriberInterface
 
     public function onRegistrationSuccess(FormEvent $event)
     {
+    	// 'ROLE_USER' est reservé par FOSUser, alors le rôle ne va pas s'enregistrer dans la DB.
         $rolesArr = ['ROLE_CLIENT'];
 
         /** @var $user \FOS\UserBundle\Model\UserInterface */
         $user = $event->getForm()->getData();
         $user->setRoles($rolesArr);
         
-        //$event->getUser()->setRoles($rolesArr);
-//        return $user;
-    	/**/
     }
 }
