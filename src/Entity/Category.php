@@ -44,7 +44,7 @@ class Category
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Blog", mappedBy="categories")
      */
-   // private $blogs;
+   private $blogs;
 
     /**
      * Category constructor.
@@ -52,9 +52,26 @@ class Category
     public function __construct()
     {
         $this->date=new \DateTime();
-      //  $this->blogs = new ArrayCollection();
+        $this->blogs = new ArrayCollection();
 
     }
+	
+	/**
+	 * @return mixed
+	 */
+	public function getBlogs()
+	{
+		return $this->blogs;
+	}
+	
+	/**
+	 * @param mixed $blogs
+	 */
+	public function setBlogs($blogs): void
+	{
+		$this->blogs = $blogs;
+	}
+    
     /**
      * @return string
      */

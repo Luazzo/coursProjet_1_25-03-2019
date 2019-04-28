@@ -32,6 +32,7 @@ class BlogController extends AbstractController
             'blogs' => $workRepository->findBlogsNmb($nmb)
         ]);
     }
+    
 
     /**
      * @Route("/{id}", name="blog_show", methods={"GET"})
