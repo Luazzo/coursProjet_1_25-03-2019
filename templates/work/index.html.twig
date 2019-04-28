@@ -10,7 +10,7 @@
                                 <figcaption>
                                     <h3>{{ work.name.getContent(app.request.locale) }}</h3>
                                     <span>{{ work.client.username }}</span>
-                                    <a href="{{path('app_work_show', {id : work.id}) }}">{% trans %}take_a_look{% endtrans %}</a>
+                                    <a href="{{path('app_work_show', {id : work.id, slug: work.slug.getContent(app.request.locale)}) }}">{% trans %}take_a_look{% endtrans %}</a>
                                 </figcaption>
                             </figure>
                         </div>

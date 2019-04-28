@@ -23,19 +23,16 @@ class WorkController extends AbstractController
         ]);
     }
     
-    /**
-     * @Route("/", name="index", methods={"GET"})
-     */
-    public function index(WorkRepository $workRepository, $nmb): Response
+    public function list(WorkRepository $workRepository, $nmb, $vue): Response
     {
-        return $this->render('work/index.html.twig', [
+        return $this->render('work/'.$vue.'.html.twig', [
             'works' => $workRepository->findWorksNmb($nmb),
         ]);
     }
 
  
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/{id}-{slug}", name="show", methods={"GET"})
      */
     public function show(Work $work): Response
     {
