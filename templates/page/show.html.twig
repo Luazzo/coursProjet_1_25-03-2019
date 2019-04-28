@@ -9,7 +9,41 @@
     {% elseif page.slug.getContent(app.request.locale) == 'portfolio' %}
         {% include 'page/portfolio.html.twig' %}
     {% elseif page.slug.getContent(app.request.locale) == 'blog' %}
-<!-- Page Title -->
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>{{page.name.getContent(app.request.locale)}}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="section">
+	    	<div class="container">
+			    
+			    {{ render(controller('App\\Controller\\BlogController::list',
+					{ 'nmb': 4, 'vue': 'index' }
+				    ))
+			    }}
+		
+			    
+				<!-- Pagination -->
+				<div class="pagination-wrapper ">
+					<ul class="pagination pagination-sm">
+						<li class="disabled"><a href="#">Previous</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">Next</a></li>
+					</ul>
+				</div>
+			 
+			</div>
+	    </div>
     {% else %}
     
     {% endif %}

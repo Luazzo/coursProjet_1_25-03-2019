@@ -16,19 +16,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class BlogController extends AbstractController
 {
-    /**
-     * @Route("/", name="blog_index", methods={"GET"})
-     */
-    public function index(BlogRepository $blogRepository): Response
-    {
-        return $this->render('blog/index.html.twig', [
-            'blogs' => $blogRepository->findAll(),
-        ]);
-    }
     
-    public function list(BlogRepository $workRepository, $nmb): Response
+    public function list(BlogRepository $workRepository, $nmb, $vue): Response
     {
-        return $this->render('blog/list.html.twig', [
+        return $this->render('blog/'.$vue.'.html.twig', [
             'blogs' => $workRepository->findBlogsNmb($nmb)
         ]);
     }
