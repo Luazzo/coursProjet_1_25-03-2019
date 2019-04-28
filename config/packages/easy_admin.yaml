@@ -1,0 +1,64 @@
+easy_admin:
+    site_name: 'BasicaAdmin'
+
+    entities:
+        Blog:
+            class: App\Entity\Blog
+            list:
+                fields:
+                    - {property: 'name'}
+                    - {property: 'slug'}
+                    - {property: 'title'}
+                    - {property: 'description'}
+                    - {property: 'suitetext'}
+                    - {property: 'imageName', type: 'image', base_path: '%app.path.blogs%'}
+            form:
+                fields:
+                  - {property: 'name', type: 'App\Form\TexteType'}
+                  - {property: 'slug', type: 'App\Form\TexteType'}
+                  - {property: 'title', type: 'App\Form\TexteType'}
+                  - {property: 'description', type: 'App\Form\TexteType'}
+                  - {property: 'suitetext', type: 'App\Form\TexteType'}
+                  - {property: 'imageFile', type: 'vich_image'}
+        Work:
+            class: App\Entity\Work
+            list:
+                fields:
+                    - {property: 'name'}
+                    - {property: 'slug'}
+                    - {property: 'description'}
+                    - {property: 'client'}
+                    - {property: 'imageName', type: 'image', base_path: '%app.path.works%'}
+            form:
+                fields:
+                  - {property: 'name', type: 'App\Form\TexteType'}
+                  - {property: 'slug', type: 'App\Form\TexteType'}
+                  - {property: 'description', type: 'App\Form\TexteType'}
+                  - {property: 'client'}
+                  - {property: 'imageFile', type: 'vich_image'}
+
+        Tag:
+          class: App\Entity\Tag
+          list:
+            fields:
+              - {property: 'name'}
+              - {property: 'slug'}
+              - {property: 'description'}
+          form:
+            fields:
+              - {property: 'name', type: 'App\Form\TexteType'}
+              - {property: 'slug', type: 'App\Form\TexteType'}
+              - {property: 'description', type: 'App\Form\TexteType'}
+
+        Category:
+          class: App\Entity\Category
+          list:
+            fields:
+              - {property: 'name'}
+              - {property: 'slug'}
+              - {property: 'description'}
+          form:
+            fields:
+              - {property: 'name', type: 'App\Form\TexteType'}
+              - {property: 'slug', type: 'App\Form\TexteType'}
+              - {property: 'description', type: 'App\Form\TexteType'}
