@@ -3,46 +3,15 @@
 {% block title %}{{page.name.getContent(app.request.locale)}}{% endblock %}
 
 {% block body %}
-    {% if page.slug == 'accueil' %}
-        <!--chargement de slider-->
-        {{ render(controller(
-            'App\\Controller\\WorkController::slider',
-            { 'nmb': 3 }
-            ))
-        }}
-        <!--chargement de works-->
-        {{ render(controller(
-            'App\\Controller\\WorkController::index',
-            { 'nmb': 6 }
-            ))
-        }}
-        
-        <!-- Our Articles -->
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    
-                    <!--chargement de Latest Blog Posts-->
-                    {{ render(controller(
-                        'App\\Controller\\BlogController::list',
-                        { 'nmb': 3 }
-                        ))
-                    }}
-                    
-                    
-                    <!--chargement de Latest News-->
-                    {{ render(controller(
-                        'App\\Controller\\NewsController::listNews',
-                        { 'nmb': 3 }
-                        ))
-                    }}
-                    
-                    <!-- End Featured News -->
-                </div>
-            </div>
-        </div>
-        
-        
+	
+    {% if page.slug.getContent(app.request.locale) == 'accueil' or page.slug.getContent(app.request.locale) == 'home' %}
+        {% include 'page/accueil.html.twig' %}
+    {% elseif page.slug.getContent(app.request.locale) == 'portfolio' %}
+        {% include 'page/portfolio.html.twig' %}
+    {% elseif page.slug.getContent(app.request.locale) == 'blog' %}
+<!-- Page Title -->
+    {% else %}
+    
     {% endif %}
     
     
