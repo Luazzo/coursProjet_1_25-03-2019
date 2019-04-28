@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Page;
-use App\Form\PageType;
 use App\Repository\PageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,84 +10,42 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/page")
+ * @Route("/page",name="app_page_")
  */
 class PageController extends AbstractController
 {
-    /**
-     * @Route("/", name="page_index", methods={"GET"})
-     */
-    public function index(PageRepository $pageRepository): Response
-    {
-        return $this->render('page/index.html.twig');
-    }
+
 
     /**
-     * @Route("/new", name="page_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $page = new Page();
-        $form = $this->createForm(PageType::class, $page);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($page);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('page_index');
-        }
-
-        return $this->render('page/new.html.twig', [
-            'page' => $page,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="page_show", methods={"GET"})
-     */
-    public function show(Page $page): Response
+	 * @Route("/{id}-{slug}", name="show", methods={"GET"}, defaults={"id"=1,"slug"="accueil"})
+	 * @param Page $page
+	 * @return Response
+	 */
+	public function show(Page $page): Response
     {
         return $this->render('page/show.html.twig', [
             'page' => $page,
         ]);
     }
-
-    /**
-     * @Route("/{id}/edit", name="page_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Page $page): Response
+	
+	/**
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	//pour contourner un problem de URL :
+	//si on passe {_local} et defaults: id:1 slug: 'accueil'
+	//la page de symfony s'affiche
+	//alors cette fonction est pour faire redirection vers page_show avec des parametres
+	public function home()
     {
-        $form = $this->createForm(PageType::class, $page);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('page_index', [
-                'id' => $page->getId(),
-            ]);
-        }
-
-        return $this->render('page/edit.html.twig', [
-            'page' => $page,
-            'form' => $form->createView(),
-        ]);
+        return $this->redirectToRoute('app_page_show',['id'=>1,'slug'=>'accueil','_locale'=>'fr']);
     }
-
-    /**
-     * @Route("/{id}", name="page_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Page $page): Response
+	
+	/**
+	 * @param $req
+	 */
+	public function header($req):Response
     {
-        if ($this->isCsrfTokenValid('delete'.$page->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($page);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('page_index');
+    	return $this->render('partials/_header.html.twig',['req'=>$req,'pages'=>$this->getDoctrine()->getRepository(Page::class)->findAll()]);
     }
+    
 }

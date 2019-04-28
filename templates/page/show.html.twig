@@ -1,26 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page{% endblock %}
+{% block title %}{{page.name.getContent(app.request.locale)}}{% endblock %}
 
 {% block body %}
-    <h1>Page</h1>
+    {% if page.slug == 'accueil' %}
+        <!--chargement de slider-->
+        {{ render(controller(
+            'App\\Controller\\WorkController::slider',
+            { 'nmb': 3 }
+            ))
+        }}
+        <!--chargement de works-->
+        {{ render(controller(
+            'App\\Controller\\WorkController::index',
+            { 'nmb': 6 }
+            ))
+        }}
+        
+        <!-- Our Articles -->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    
+                    <!--chargement de Latest Blog Posts-->
+                    {{ render(controller(
+                        'App\\Controller\\BlogController::list',
+                        { 'nmb': 3 }
+                        ))
+                    }}
+                    
+                    
+                    <!--chargement de Latest News-->
+                    {{ render(controller(
+                        'App\\Controller\\NewsController::listNews',
+                        { 'nmb': 3 }
+                        ))
+                    }}
+                    
+                    <!-- End Featured News -->
+                </div>
+            </div>
+        </div>
+        
+        
+    {% endif %}
+    
+    
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ page.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ page.nom }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('page_index') }}">back to list</a>
-
-    <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
-
-    {{ include('page/_delete_form.html.twig') }}
 {% endblock %}

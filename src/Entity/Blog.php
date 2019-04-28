@@ -6,9 +6,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
+ * @Vich\Uploadable
  */
 class Blog
 {
@@ -20,9 +25,30 @@ class Blog
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
      */
     private $name;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
+     * @Assert\Regex(pattern="/^[a-z0-9\-]+$/", message="les-mots-doivent-etre-separés-par-tiré")
+     */
+    private $slug;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
+     */
+    private $title;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
+     */
+    private $suiteText;
 
     /**
      * @ORM\Column(type="datetime")
@@ -30,262 +56,236 @@ class Blog
     private $date;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="blog")
-     */
-    private $images;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="blog")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Category", mappedBy="blog")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="blogs")
      */
-    private $Categories;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="blogs")
+    private $categories;
+    
+	/**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="blogs", fileNameProperty="imageName")
+     *
+     * @var File|null
      */
-    private $user;
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @var string|null
      */
-    private $slug;
+    private $imageName;
 
     /**
      * Blog constructor.
      */
     public function __construct()
     {
-        $this->images = new ArrayCollection();
-        $this->comments = new ArrayCollection();
-        $this->Categories = new ArrayCollection();
+        $this->comments = rand(2,45);
+        $this->date=new \DateTime();
+        $this->categories = new ArrayCollection();
     }
 
     /**
-     * @return null|int
+     * @return string
      */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName(): ?string
+    public function __toString() :string
     {
         return $this->name;
     }
+	
+	/**
+	 * @return mixed
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+	
+	/**
+	 * @param mixed $id
+	 */
+	public function setId($id): void
+	{
+		$this->id = $id;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+	
+	/**
+	 * @param mixed $name
+	 */
+	public function setName($name): void
+	{
+		$this->name = $name;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getSlug()
+	{
+		return $this->slug;
+	}
+	
+	/**
+	 * @param mixed $slug
+	 */
+	public function setSlug($slug): void
+	{
+		$this->slug = $slug;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getTitle()
+	{
+		return $this->title;
+	}
+	
+	/**
+	 * @param mixed $title
+	 */
+	public function setTitle($title): void
+	{
+		$this->title = $title;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getDescription()
+	{
+		return $this->description;
+	}
+	
+	/**
+	 * @param mixed $description
+	 */
+	public function setDescription($description): void
+	{
+		$this->description = $description;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getSuiteText()
+	{
+		return $this->suiteText;
+	}
+	
+	/**
+	 * @param mixed $suiteText
+	 */
+	public function setSuiteText($suiteText): void
+	{
+		$this->suiteText = $suiteText;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getDate()
+	{
+		return $this->date;
+	}
+	
+	/**
+	 * @param mixed $date
+	 */
+	public function setDate($date): void
+	{
+		$this->date = $date;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getComments()
+	{
+		return $this->comments;
+	}
+	
+	/**
+	 * @param mixed $comments
+	 */
+	public function setComments($comments): void
+	{
+		$this->comments = $comments;
+	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getCategories()
+	{
+		return $this->categories;
+	}
+	
+	/**
+	 * @param mixed $categories
+	 */
+	public function setCategories($categories): void
+	{
+		$this->categories = $categories;
+	}
 
-    /**
-     * @param string $name
-     * @return \App\Entity\Blog
-     */
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return null|\DateTimeInterface
-     */
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param \DateTimeInterface $date
-     * @return \App\Entity\Blog
-     */
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     * @return \App\Entity\Blog
-     */
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Image[]
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    /**
-     * @param \App\Entity\Image $image
-     * @return \App\Entity\Blog
-     */
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setBlog($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param \App\Entity\Image $image
-     * @return \App\Entity\Blog
-     */
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->contains($image)) {
-            $this->images->removeElement($image);
-            // set the owning side to null (unless already changed)
-            if ($image->getBlog() === $this) {
-                $image->setBlog(null);
+ 
+    
+	/**
+	 * @return File|null
+	 */
+	public function getImageFile(): ?File
+	{
+		return $this->imageFile;
+	}
+	
+	
+	/**
+	 * @param File|null $imageFile
+	 * @return Blog
+	 * @throws \Exception
+	 */
+	public function setImageFile(?File $imageFile): void
+	{
+		$this->imageFile = $imageFile;
+		        if (null !== $imageFile) {
+            if ($this->imageFile instanceof UploadedFile) {
+                // It is required that at least one field changes if you are using doctrine
+                // otherwise the event listeners won't be called and the file is lost
+                $this->date = new \DateTimeImmutable();
             }
+
         }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Comment[]
-     */
-    public function getComments(): Collection
-    {
-        return $this->comments;
-    }
-
-    /**
-     * @param \App\Entity\Comment $comment
-     * @return \App\Entity\Blog
-     */
-    public function addComment(Comment $comment): self
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments[] = $comment;
-            $comment->setBlog($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param \App\Entity\Comment $comment
-     * @return \App\Entity\Blog
-     */
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comments->contains($comment)) {
-            $this->comments->removeElement($comment);
-            // set the owning side to null (unless already changed)
-            if ($comment->getBlog() === $this) {
-                $comment->setBlog(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->Categories;
-    }
-
-    /**
-     * @param \App\Entity\Category $category
-     * @return \App\Entity\Blog
-     */
-    public function addCategory(Category $category): self
-    {
-        if (!$this->Categories->contains($category)) {
-            $this->Categories[] = $category;
-            $category->setBlog($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param \App\Entity\Category $category
-     * @return \App\Entity\Blog
-     */
-    public function removeCategory(Category $category): self
-    {
-        if ($this->Categories->contains($category)) {
-            $this->Categories->removeElement($category);
-            // set the owning side to null (unless already changed)
-            if ($category->getBlog() === $this) {
-                $category->setBlog(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return null|\App\Entity\User
-     */
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param null|\App\Entity\User $user
-     * @return \App\Entity\Blog
-     */
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    /**
-     * @param string $slug
-     * @return \App\Entity\Blog
-     */
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
+	}
+	
+	/**
+	 * @return string|null
+	 */
+	public function getImageName(): ?string
+	{
+		return $this->imageName;
+	}
+	
+	/**
+	 * @param string|null $imageName
+	 */
+	public function setImageName(?string $imageName): self
+	{
+		$this->imageName = $imageName;
+		return $this;
+	}
 }

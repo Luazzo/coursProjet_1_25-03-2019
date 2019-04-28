@@ -18,6 +18,16 @@ class NewsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, News::class);
     }
+    
+    public function findNewsNmb($nmb)
+    {
+        return $this->createQueryBuilder('n')
+            ->orderBy('n.id', 'ASC')
+            ->setMaxResults($nmb)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return News[] Returns an array of News objects

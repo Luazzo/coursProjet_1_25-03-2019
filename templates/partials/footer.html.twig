@@ -6,17 +6,17 @@
         <div class="row">
 
             <div class="col-footer col-md-4 col-xs-6">
-                <h3>Contact Us</h3>
+                <h3>{% trans %}contact_us{% endtrans %}</h3>
                 <p class="contact-us-details">
-                    <b>Address:</b> 123 Downtown Avenue, Manhattan, New York, United States of America<br/>
-                    <b>Phone:</b> +1 123 45678910<br/>
-                    <b>Fax:</b> +1 123 45678910<br/>
-                    <b>Email:</b> <a href="mailto:info@yourcompanydomain.com">info@yourcompanydomain.com</a>
+                    <b>{% trans %}address{% endtrans %}</b> {% trans %}address_text{% endtrans %}<br/>
+                    <b>{% trans %}phone{% endtrans %}</b> {% trans %}phone_text{% endtrans %}<br/>
+                    <b>{% trans %}fax{% endtrans %}</b>{% trans %}fax_text{% endtrans %}<br/>
+                    <b>{% trans %}mail{% endtrans %}</b> <a href="mailto:info@yourcompanydomain.com">{% trans %}mail_text{% endtrans %}</a>
                 </p>
             </div>
             <div class="col-footer col-md-4 col-xs-6">
-                <h3>Our Social Networks</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+                <h3>{% trans %}our_social_networks.titre{% endtrans %}</h3>
+                <p>{% trans %}our_social_networks.text{% endtrans %}</p>
                 <div>
                     <img src="{{ asset('build/img/icons/facebook.png') }}" width="32" alt="Facebook">
                     <img src="{{ asset('build/img/icons/twitter.png') }}" width="32" alt="Twitter">
@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class="col-footer col-md-4 col-xs-6">
-                <h3>About Our Company</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
+                <h3>{% trans %}about_our_company.titre{% endtrans %}</h3>
+                <p>{% trans %}about_our_company.text{% endtrans %}</p>
             </div>
 
         </div>

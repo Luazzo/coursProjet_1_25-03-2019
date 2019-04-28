@@ -4,8 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'fr'
 
+    app.path.works: /uploads/images/works
+    app.path.blogs: /uploads/images/blogs
 
 
 services:
@@ -34,19 +36,11 @@ services:
 
     app.event_listener.registration_listener:
         class: App\EventListener\RegistrationListener
-        arguments: []
+        arguments:
+            - $ent: '@Doctrine\ORM\EntityManagerInterface'
         tags:
-            - { name: kernel.event_subscriber }
+            - { name: kernel.event_subscriber, event: prePersist }
 
-
-
-
-
-    app.subscriber.user_registered_subscriber:
-        class: App\Subscriber\UserRegisteredSubscriber
-        arguments: []
-        tags:
-            - { name: kernel.event_subscriber }
 
 
     app.controller.registration_controller:
@@ -61,6 +55,13 @@ services:
               arguments:
                   - '@service_container'
         public: true
+
+
+    app.subscriber.user_registered_subscriber:
+        class: App\Subscriber\UserRegisteredSubscriber
+        arguments: []
+        tags:
+            - { name: kernel.event_subscriber }
 
     #fos.user.form.factory.fatory_interface:
     #    class: FOS\UserBundle\Form\Factory\FactoryInterface

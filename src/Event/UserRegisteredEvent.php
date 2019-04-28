@@ -3,7 +3,7 @@
 namespace App\Event;
 
 use Symfony\Component\EventDispatcher\Event;
-use App\Entity\UserInterface as User;
+use FOS\UserBundle\Model\UserInterface as User;
 
 class UserRegisteredEvent extends Event
 {

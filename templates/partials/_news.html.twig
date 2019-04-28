@@ -1,0 +1,23 @@
+<!-- Latest News FB -->
+<div class="col-sm-6 latest-news">
+	<h2>{% trans %}lastest_facebook_twitter_news{% endtrans %}</h2>
+	
+	{% if news %}
+		{% for new in news %}
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="caption">
+						<a href="full-width.html">
+							{{new.title.getContent(app.request.locale)}}
+						</a>
+					</div>
+					<div class="date">{{new.date | date('d F, Y')}}</div>
+					<div class="intro">
+						{{new.description.getContent(app.request.locale) | slice(0, 100)}}
+						<a href="#">{% trans %}read_more{% endtrans %}</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
+</div>

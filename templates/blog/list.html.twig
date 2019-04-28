@@ -1,0 +1,28 @@
+
+
+<!-- Featured News -->
+<div class="col-sm-6 featured-news">
+	<h2>{% trans %}latest_blog_posts{% endtrans %}</h2>
+	
+	{% if blogs %}
+		{% for blog in blogs %}
+			<div class="row">
+				<div class="col-xs-4">
+					<a href="{{path('app_blog_show', {id : blog.id}) }}">
+						<img src="{{asset('uploads/images/blogs/'~blog.imageName)}}" alt="{{blog.imageName}}">
+					</a>
+				</div>
+				<div class="col-xs-8">
+					<div class="caption"><a href="blog-post.html">{{blog.name.getContent(app.request.locale)}}</a></div>
+					<div class="date">{{blog.date | date('d F, Y')}} </div>
+					<div class="intro">
+						{{blog.description.getContent(app.request.locale) | slice(0, 100)}}
+						<a href="{{path('app_blog_show', {id : blog.id}) }}">{% trans %}read_more{% endtrans %}</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
+	
+</div>
+<!-- End Featured News -->

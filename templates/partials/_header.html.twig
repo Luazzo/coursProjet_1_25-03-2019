@@ -1,0 +1,46 @@
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="{{ asset('build/img/logo.png') }}" alt="Basica"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              {% for page in pages %}
+                <li class="{% if req.attributes.get('id')==page.id %}active{% endif %}">
+                    <a href="{{path('app_page_show',{'id':page.id,'slug':page.slug,'_locale':req.locale})}}">{{page.name}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="float-right">
+            {% set route = req.attributes.get('_route') %}
+            <!--home-->
+            {% set route_params = req.attributes.get('_route_params') %}
+            <!--array:2 [▼
+              "id" => 1
+              "slug" => "accueil"
+            ]-->
+            {% set params = route_params|merge(req.query.all) %}
+            <!--array:2 [▼
+              "id" => 1
+              "slug" => "accueil"
+            ]-->
+            {% set locale = req.locale %}
+            <!--'fr'-->
+            <a href="{{ path(route, params|merge({ _locale: 'fr' })) }}" {% if locale == 'fr' %}class="active" {% endif %}>
+                FR
+            </a>
+            |
+            <a href="{{ path(route, params|merge({ _locale: 'en' })) }}" {% if locale == 'en' %}class="active" {% endif %}>
+                EN
+            </a>
+            
+        </div>
+    </div>
+</header><!--/header-->

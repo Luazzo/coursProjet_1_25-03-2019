@@ -1,0 +1,12 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        works:
+            uri_prefix:         '%app.path.works%'
+            upload_destination: '%kernel.root_dir%/../public%app.path.works%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+        blogs:
+            uri_prefix:         '%app.path.blogs%'
+            upload_destination: '%kernel.root_dir%/../public%app.path.blogs%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer

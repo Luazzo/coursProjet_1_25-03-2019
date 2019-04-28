@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Blog;
+use App\Repository\WorkRepository;
+use App\Form\BlogType;
+use App\Repository\BlogRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+/**
+ * @Route("/blog", name="app_")
+ */
+class BlogController extends AbstractController
+{
+    /**
+     * @Route("/", name="blog_index", methods={"GET"})
+     */
+    public function index(BlogRepository $blogRepository): Response
+    {
+        return $this->render('blog/index.html.twig', [
+            'blogs' => $blogRepository->findAll(),
+        ]);
+    }
+    
+    public function list(BlogRepository $workRepository, $nmb): Response
+    {
+        return $this->render('blog/list.html.twig', [
+            'blogs' => $workRepository->findBlogsNmb($nmb)
+        ]);
+    }
+    
+
+    /**
+     * @Route("/{id}", name="blog_show", methods={"GET"})
+     */
+    public function show(Blog $blog): Response
+    {
+        return $this->render('blog/show.html.twig', [
+            'blog' => $blog,
+        ]);
+    }
+
+}

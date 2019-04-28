@@ -3,11 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
+ * @Vich\Uploadable
  */
 class Work
 {
@@ -19,9 +24,20 @@ class Work
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
      */
     private $name;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
+     * @Assert\Regex(pattern="/^[a-z0-9\-]+$/", message="les-mots-doivent-etre-separés-par-tiré")
+     */
+    private $slug;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Texte", cascade={"persist", "remove"})
+     */
+    private $description;
 
     /**
      * @ORM\Column(type="datetime")
@@ -29,211 +45,198 @@ class Work
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="work")
-     */
-    private $images;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="works")
      */
     private $tags;
+    
+	/**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="works", fileNameProperty="imageName")
+     *
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string|null
+     */
+    private $imageName;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="works")
      */
-    private $User;
+    private $client;
+	
 
     /**
      * Work constructor.
      */
     public function __construct()
     {
-        $this->images = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     /**
-     * @return null|int
+     * @return mixed
      */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName(): ?string
+    public function __toString()  : string
     {
         return $this->name;
     }
+	
+	/**
+	 * @return mixed
+	 */
+	public function getId()
+         	{
+         		return $this->id;
+         	}
+	
+	/**
+	 * @param mixed $id
+	 */
+	public function setId($id): void
+         	{
+         		$this->id = $id;
+         	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getName()
+         	{
+         		return $this->name;
+         	}
+	
+	/**
+	 * @param mixed $name
+	 */
+	public function setName($name): void
+         	{
+         		$this->name = $name;
+         		
+         	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getSlug()
+         	{
+         		return $this->slug;
+         	}
+	
+	/**
+	 * @param mixed $slug
+	 */
+	public function setSlug($slug): void
+         	{
+         		$this->slug = $slug;
+         	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getDate()
+         	{
+         		return $this->date;
+         	}
+	
+	/**
+	 * @param mixed $date
+	 */
+	public function setDate($date): void
+         	{
+         		$this->date = $date;
+         	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getTags()
+         	{
+         		return $this->tags;
+         	}
+	
+	/**
+	 * @param mixed $tags
+	 */
+	public function setTags($tags): void
+         	{
+         		$this->tags = $tags;
+         	}
+	
+	/**
+	 * @return mixed
+	 */
+	public function getDescription()
+         	{
+         		return $this->description;
+         	}
+	
+	/**
+	 * @param mixed $description
+	 */
+	public function setDescription($description): void
+         	{
+         		$this->description = $description;
+         	}
+	
+	/**
+	 * @return File|null
+	 */
+	public function getImageFile(): ?File
+         	{
+         		return $this->imageFile;
+         	}
+	
+	
+	/**
+	 * @param File|null $imageFile
+	 * @return Work
+	 * @throws \Exception
+	 */
+	public function setImageFile(?File $imageFile): void
+         	{
+         		$this->imageFile = $imageFile;
+         		        if (null !== $imageFile) {
+                     if ($this->imageFile instanceof UploadedFile) {
+                         // It is required that at least one field changes if you are using doctrine
+                         // otherwise the event listeners won't be called and the file is lost
+                         $this->date = new \DateTimeImmutable();
+                     }
+         
+                 }
+         	}
+	
+	/**
+	 * @return string|null
+	 */
+	public function getImageName(): ?string
+         	{
+         		return $this->imageName;
+         	}
+	
+	/**
+	 * @param string|null $imageName
+	 */
+	public function setImageName(?string $imageName): self
+         	{
+         		$this->imageName = $imageName;
+         		return $this;
+         	}
 
-    /**
-     * @param string $name
-     * @return \App\Entity\Work
-     */
-    public function setName(string $name): self
+    public function getClient(): ?User
     {
-        $this->name = $name;
-
-        return $this;
+        return $this->client;
     }
 
-    /**
-     * @return null|\DateTimeInterface
-     */
-    public function getDate(): ?\DateTimeInterface
+    public function setClient(?User $client): self
     {
-        return $this->date;
-    }
-
-    /**
-     * @param \DateTimeInterface $date
-     * @return \App\Entity\Work
-     */
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     * @return \App\Entity\Work
-     */
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     * @return \App\Entity\Work
-     */
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Image[]
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    /**
-     * @param \App\Entity\Image $image
-     * @return \App\Entity\Work
-     */
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setWork($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param \App\Entity\Image $image
-     * @return \App\Entity\Work
-     */
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->contains($image)) {
-            $this->images->removeElement($image);
-            // set the owning side to null (unless already changed)
-            if ($image->getWork() === $this) {
-                $image->setWork(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Tag[]
-     */
-    public function getTags(): Collection
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param \App\Entity\Tag $tag
-     * @return \App\Entity\Work
-     */
-    public function addTag(Tag $tag): self
-    {
-        if (!$this->tags->contains($tag)) {
-            $this->tags[] = $tag;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param \App\Entity\Tag $tag
-     * @return \App\Entity\Work
-     */
-    public function removeTag(Tag $tag): self
-    {
-        if ($this->tags->contains($tag)) {
-            $this->tags->removeElement($tag);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return null|\App\Entity\User
-     */
-    public function getUser(): ?User
-    {
-        return $this->User;
-    }
-
-    /**
-     * @param null|\App\Entity\User $User
-     * @return \App\Entity\Work
-     */
-    public function setUser(?User $User): self
-    {
-        $this->User = $User;
+        $this->client = $client;
 
         return $this;
     }
