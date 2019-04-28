@@ -1,7 +1,7 @@
 {% if blogs %}
 	<ul class="recent-posts">
 		{% for blog in blogs %}
-			<li><a href="{{path('app_blog_show', {id : blog.id}) }}">{{blog.name.getContent(app.request.locale)}}</a></li>
+			<li><a href="{{path('app_blog_show', {id : blog.id, slug: blog.slug.getContent(app.request.locale)}) }}">{{blog.name.getContent(app.request.locale)}}</a></li>
 		{% endfor %}
 	</ul>
 {% endif %}
