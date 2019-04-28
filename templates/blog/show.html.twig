@@ -1,34 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{blog.name.getContent(app.request.locale)}}{% endblock %}
 
 {% block body %}
-    <h1>Blog</h1>
+    <!-- Page Title -->
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{% trans %}Blog Post{% endtrans %}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Blog Post -->
+                <div class="col-sm-8">
+                    <div class="blog-post blog-single-post">
+                        <div class="single-post-title">
+                            <h2>{{blog.name.getContent(app.request.locale)}}</h2>
+                        </div>
+                        
+                        <div class="single-post-image">
+                            <img src="{{asset('uploads/images/blogs/'~blog.imageName)}}" alt="{{blog.imageName}}">
+                        </div>
+                        <div class="single-post-info">
+                            <i class="glyphicon glyphicon-time"></i>{{blog.date | date('d F, Y')}}
+                            <a href="#" title="Show Comments">
+                                <i class="glyphicon glyphicon-comment"></i>{{blog.comments}}
+                            </a>
+                        </div>
+                        <div class="single-post-content">
+                            <h3>{{blog.title.getContent(app.request.locale)}}</h3>
+                            <p>
+                                {{blog.suitetext.getContent(app.request.locale)}}
+                            </p>
+                            <p>
+                                {{blog.description.getContent(app.request.locale)}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Blog Post -->
+                <!-- Sidebar -->
+                <div class="col-sm-4 blog-sidebar">
+                    
+                    <h4>{% trans %}recent_posts{% endtrans %}</h4>
+                    
+                    {{ render(controller('App\\Controller\\BlogController::list',{'nmb':4, 'vue':'listinaside'})) }}
+                    
+                    <h4>{% trans %}categories{% endtrans %}</h4>
+                    
+                    {{ render(controller('App\\Controller\\CategoryController::list',{'nmb':4, 'vue':'listinaside'})) }}
+                
+                </div>
+                <!-- End Sidebar -->
+            </div>
+        </div>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ blog.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ blog.date ? blog.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Comments</th>
-                <td>{{ blog.comments }}</td>
-            </tr>
-            <tr>
-                <th>ImageName</th>
-                <td>{{ blog.imageName }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('blog_index') }}">back to list</a>
-
-    <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
-
-    {{ include('blog/_delete_form.html.twig') }}
 {% endblock %}

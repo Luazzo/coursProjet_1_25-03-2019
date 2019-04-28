@@ -1,0 +1,10 @@
+
+
+
+{% if categories %}
+	<ul class="blog-categories">
+		{% for category in categories %}
+			<li><a href="{{path('app_category_show', {id : category.id}) }}">{{category.name.getContent(app.request.locale)}}</a></li>
+		{% endfor %}
+	</ul>
+{% endif %}
