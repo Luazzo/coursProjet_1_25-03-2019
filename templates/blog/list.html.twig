@@ -8,7 +8,7 @@
 		{% for blog in blogs %}
 			<div class="row">
 				<div class="col-xs-4">
-					<a href="{{path('app_blog_show', {id : blog.id}) }}">
+					<a href="{{path('app_blog_show', {id : blog.id, slug: blog.slug.getContent(app.request.locale)}) }}">
 						<img src="{{asset('uploads/images/blogs/'~blog.imageName)}}" alt="{{blog.imageName}}">
 					</a>
 				</div>
@@ -17,7 +17,7 @@
 					<div class="date">{{blog.date | date('d F, Y')}} </div>
 					<div class="intro">
 						{{blog.description.getContent(app.request.locale) | slice(0, 100)}}
-						<a href="{{path('app_blog_show', {id : blog.id}) }}">{% trans %}read_more{% endtrans %}</a>
+						<a href="{{path('app_blog_show', {id : blog.id, slug: blog.slug.getContent(app.request.locale)}) }}">{% trans %}read_more{% endtrans %}</a>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,18 @@
+{% if works %}
+	<ul class="grid cs-style-2">
+		{% for wek in works %}
+			{% if wek.id != work.id %}
+				<div class="col-md-3 col-sm-6">
+					<figure>
+						<img src="{{ asset('uploads/images/works/'~wek.imageName) }}" alt="{{wek.imageName}}">
+						<figcaption>
+							<h3>{{wek.name.getContent(app.request.locale) | slice(0, 10)}}</h3>
+							<span>{{wek.client.username}}</span>
+							<a href="{{ path('app_work_show', {'id': wek.id, 'slug':wek.slug}) }}">{% trans %}take_a_look{% endtrans %}</a>
+						</figcaption>
+					</figure>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endif %}

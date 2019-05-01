@@ -1,0 +1,52 @@
+<!--chargement de slider-->
+{{ render(controller(
+	'App\\Controller\\WorkController::slider',
+	{ 'nmb': 3 }
+	))
+}}
+
+<!-- Our Portfolio -->
+<div class="section section-white">
+    <div class="container">
+        <div class="row">
+            
+            <div class="section-title">
+                <h1>{% trans %}our_recent_works{% endtrans %}</h1>
+            </div>
+			         
+			<!--chargement de works-->
+			{{ render(controller(
+				'App\\Controller\\WorkController::list',
+				{ 'nmb': 6, 'vue':'index' }
+				))
+			}}
+        
+        </div>
+    </div>
+</div>
+<!-- Our Portfolio -->
+
+<!-- Our Articles -->
+<div class="section">
+	<div class="container">
+		<div class="row">
+			
+			<!--chargement de Latest Blog Posts-->
+			{{ render(controller(
+				'App\\Controller\\BlogController::list',
+				{ 'nmb': 3, 'vue': 'list', 'pagination': null }
+			))
+			}}
+			
+			
+			<!--chargement de Latest News-->
+			{{ render(controller(
+				'App\\Controller\\NewsController::listNews',
+				{ 'nmb': 3 }
+			))
+			}}
+			
+			<!-- End Featured News -->
+		</div>
+	</div>
+</div>

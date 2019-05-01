@@ -1,39 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog index{% endblock %}
+{% block title %}Blogs{% endblock %}
 
 {% block body %}
-    <h1>Blog index</h1>
+	
+	<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1>blogs</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="container">
+	{% if blogs %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Comments</th>
-                <th>ImageName</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for blog in blogs %}
-            <tr>
-                <td>{{ blog.id }}</td>
-                <td>{{ blog.date ? blog.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ blog.comments }}</td>
-                <td>{{ blog.imageName }}</td>
-                <td>
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
-                    <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<div class="row">
+		
+		{% for blog in blogs %}
+			
+			<!-- Blog Post Excerpt -->
+			<div class="col-sm-6">
+				<div class="blog-post blog-single-post">
+					<div class="single-post-title">
+						<h2>{{blog.name.getContent(app.request.locale) | slice(0, 25)}}</h2>
+					</div>
+					
+					<div class="single-post-image">
+						<img src="{{asset('uploads/images/blogs/'~blog.imageName)}}" alt="{{blog.imageName}}">
+					</div>
+					
+					<div class="single-post-info">
+						<i class="glyphicon glyphicon-time"></i>{{blog.date | date('d F, Y')}}
+						<a href="#" title="Show Comments">
+							<i class="glyphicon glyphicon-comment"></i>{{blog.comments}}
+						</a>
+					</div>
+					
+					<div class="single-post-content">
+						<p>
+							{{blog.description.getContent(app.request.locale) | slice(0, 200)}}
+						</p>
+						<a href="{{ path('app_blog_show', {'id': blog.id, 'slug':blog.slug}) }}" class="btn">{% trans %}read_more{% endtrans %}</a>
+					</div>
+				</div>
+			</div>
+			<!-- End Blog Post Excerpt -->
+			
+			{% if (loop.index is even) %}
+				</div>
+				<div class="row">
+			{% endif %}
+		
+		{% endfor %}
+		</div>
+		
+		<!-- Pagination -->
+		<div class="pagination-wrapper">
+			{{ knp_pagination_render(blogs) }}
+		</div>
+		
+		</div>
+	{% endif %}
 
-    <a href="{{ path('blog_new') }}">Create new</a>
 {% endblock %}

@@ -17,6 +17,8 @@ class TagController extends AbstractController
 {
     /**
      * @Route("/", name="index", methods={"GET"})
+     * @param \App\Repository\TagRepository $tagRepository
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(TagRepository $tagRepository): Response
     {
@@ -26,7 +28,9 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/{id}-{slug}", name="show", methods={"GET"})
+     * @param \App\Entity\Tag $tag
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function show(Tag $tag): Response
     {

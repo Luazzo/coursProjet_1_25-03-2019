@@ -1,0 +1,47 @@
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>{{page.name.getContent(app.request.locale)}}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>{{page.title.getContent(app.request.locale)}}</h2>
+						<h3>{{page.subtitle.getContent(app.request.locale)}}</h3>
+						<p>
+							{{page.description.getContent(app.request.locale)}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+
+					<!--chargement de works-->
+					{{ render(controller(
+						'App\\Controller\\WorkController::list',
+						{ 'nmb': 6, 'vue': 'index' }
+						))
+					}}
+
+				</div>
+				
+			 
+				<ul class="pager">
+				    <li><a href="#" id="moreWorks" data-url={{ path('app_work_more') }}>{% trans %}more_works{% endtrans %}</a></li>
+				    <li>  <h3 id="noMore">{% trans %}no_more_images{% endtrans %}</h3> </li>
+				</ul>
+
+			</div>
+		</div>

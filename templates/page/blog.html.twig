@@ -1,0 +1,23 @@
+<!-- Page Title -->
+<div class="section section-breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{page.name.getContent(app.request.locale)}}</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		
+		 <!-- 'nmb': '*' - return all-->
+		{{ render(controller('App\\Controller\\BlogController::list',
+			{ 'nmb': '*', 'vue': 'index', 'pagination': 4 }
+		))
+		}}
+		
+	
+	</div>
+</div>

@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Blog;
 use App\Entity\Page;
-use App\Repository\PageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,9 +22,19 @@ class PageController extends AbstractController
 	 */
 	public function show(Page $page): Response
     {
-        return $this->render('page/show.html.twig', [
-            'page' => $page,
-        ]);
+    	if($page->getSlug() == "blog"){
+    		$pageBlogs = $this->getDoctrine()
+			            ->getRepository(Blog::class)
+			            ->findAll();
+    		
+	        return $this->render('blog/index.html.twig', [
+	            'page' => $page,
+	        ]);
+	    }else{
+	        return $this->render('page/show.html.twig', [
+	            'page' => $page,
+	        ]);
+	    }
     }
 	
 	/**
