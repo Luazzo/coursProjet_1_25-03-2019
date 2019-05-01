@@ -68,7 +68,7 @@
 					<h1>{% trans %}similar_works{% endtrans %}</h1>
 				</div>
 				
-				{{ render(controller('App\\Controller\\WorkController::list',{'nmb':4, 'vue': 'similarworks'})) }}
+				{{ render(controller('App\\Controller\\WorkController::similar',{work:work})) }}
 				
 			
 			

@@ -14,20 +14,56 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class WorkRepository extends ServiceEntityRepository
 {
+
+    /**
+     * @param $tgs
+     * @return mixed
+     */
+    public function findByTags($tgs)
+    {
+        $qb=$this->createQueryBuilder('w')
+            ->leftJoin('w.tags','tags')
+            ->addSelect('tags');
+        if(is_iterable($tgs)) {
+            foreach ($tgs as $tg) {
+                $qb->andWhere(':val MEMBER OF w.tags')->setParameter('val', $tg);
+            }
+        }elseif ($tgs==null){
+
+        }else{
+            $qb
+                ->andWhere(':val MEMBER OF w.tags')->setParameter('val', $tg);
+        }
+        return $qb->getQuery() ->getResult();
+    }
+    /**
+     * WorkRepository constructor.
+     * @param \Symfony\Bridge\Doctrine\RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Work::class);
     }
-    
-    /*public function findWorksNmb($nmb){
+
+    /**
+     * @param $nmb
+     * @return mixed
+     */
+    public function findWorksNmb($nmb){
     	return $this->createQueryBuilder('w')
             ->orderBy('w.id', 'ASC')
             ->setMaxResults($nmb)
             ->getQuery()
             ->getResult()
         ;
-	}*/
-    public function findWorksNmb($nmb, $offset = null){
+	}
+
+    /**
+     * @param $nmb
+     * @param $offset
+     * @return mixed
+     */
+    public function findWorksNmbo($nmb, $offset){
     	return $this->createQueryBuilder('w')
             ->orderBy('w.id', 'ASC')
             ->setMaxResults($nmb)
