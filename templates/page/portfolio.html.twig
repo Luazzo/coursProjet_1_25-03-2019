@@ -30,15 +30,15 @@
 
 					<!--chargement de works-->
 					{{ render(controller(
-						'App\\Controller\\WorkController::index',
-						{ 'nmb': 6 }
+						'App\\Controller\\WorkController::list',
+						{ 'nmb': 6, 'vue': 'index' }
 						))
 					}}
 
 				</div>
 
 				<ul class="pager">
-				  <li><a href="#">{% trans %}more_works{% endtrans %}</a></li>
+				  <li><a href="#" id="moreWorks" data-url={{ path('app_work_more') }}>{% trans %}more_works{% endtrans %}</a></li>
 				</ul>
 
 			</div>

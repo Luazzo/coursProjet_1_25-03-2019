@@ -27,6 +27,15 @@ class WorkRepository extends ServiceEntityRepository
             ->getResult()
         ;
 	}
+    public function findWorksNmbo($nmb, $offset){
+    	return $this->createQueryBuilder('w')
+            ->orderBy('w.id', 'ASC')
+            ->setMaxResults($nmb)
+		    ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult()
+        ;
+	}
 
     // /**
     //  * @return Work[] Returns an array of Work objects
