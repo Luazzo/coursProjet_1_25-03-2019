@@ -1,26 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}{{category.name.getContent(app.request.locale)}}{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+    <!-- Page Title -->
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{% trans %}category {% endtrans %}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ category.date ? category.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <!-- category Post -->
+                <div class="col-sm-8">
+                    <div class="category-post category-single-post">
+                        <div class="single-post-title">
+                            <h2>{{category.name.getContent(app.request.locale)}}</h2>
+                        </div>
 
-    <a href="{{ path('category_index') }}">back to list</a>
+                        {#<div class="single-post-image">
+                            <img src="{{asset('uploads/images/blogs/'~category.imageName)}}" alt="{{category.imageName}}">
+                        </div>#}
+                        <div class="single-post-info">
+                            <i class="glyphicon glyphicon-time"></i>{{category.date | date('d F, Y')}}
+                            {#<a href="#" title="Show Comments">
+                                <i class="glyphicon glyphicon-comment"></i>{{category.comments}}
+                            </a>#}
+                        </div>
+                        <div class="single-post-content">
+                            <p>{{category.description.getContent(app.request.locale)}} </p>
+                        </div>
+                        <h3>{% trans %}blogs{% endtrans %}</h3>
+                        {% if category.blogs %}
+                            {% for blog in category.blogs %}
+                            <a href="{{ path('app_work_show', {'id': blog.id, 'slug': blog.slug}) }}">
+                                {{blog.name.getContent(app.request.locale)}}</a>{% if (loop.index != loop.length) %},{% endif %}<br/>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- End category Post -->
+                <!-- Sidebar -->
+                <div class="col-sm-4 category-sidebar">
 
-    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                    <h4>{% trans %}recent_posts{% endtrans %}</h4>
 
-    {{ include('category/_delete_form.html.twig') }}
+                    {{ render(controller('App\\Controller\\BlogController::list',{'nmb':4, 'vue':'listinaside'})) }}
+
+                    <h4>{% trans %}categories{% endtrans %}</h4>
+
+                    {{ render(controller('App\\Controller\\CategoryController::list',{'nmb':4, 'vue':'listinaside'})) }}
+
+                </div>
+                <!-- End Sidebar -->
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
