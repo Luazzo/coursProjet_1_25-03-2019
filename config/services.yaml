@@ -64,8 +64,3 @@ services:
         arguments: []
         tags:
             - { name: kernel.event_subscriber }
-
-    #fos.user.form.factory.fatory_interface:
-    #    class: FOS\UserBundle\Form\Factory\FactoryInterface
-     #   alias: 'fos_user.registration.form.factory'
-     #   public: true

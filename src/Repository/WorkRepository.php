@@ -47,23 +47,10 @@ class WorkRepository extends ServiceEntityRepository
 
     /**
      * @param $nmb
-     * @return mixed
-     */
-    public function findWorksNmb($nmb){
-    	return $this->createQueryBuilder('w')
-            ->orderBy('w.id', 'ASC')
-            ->setMaxResults($nmb)
-            ->getQuery()
-            ->getResult()
-        ;
-	}
-
-    /**
-     * @param $nmb
      * @param $offset
      * @return mixed
      */
-    public function findWorksNmbo($nmb, $offset){
+    public function findWorksNmb($nmb, $offset = null){
     	return $this->createQueryBuilder('w')
             ->orderBy('w.id', 'ASC')
             ->setMaxResults($nmb)
@@ -72,33 +59,4 @@ class WorkRepository extends ServiceEntityRepository
             ->getResult()
         ;
 	}
-
-    // /**
-    //  * @return Work[] Returns an array of Work objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('w')
-            ->andWhere('w.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('w.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Work
-    {
-        return $this->createQueryBuilder('w')
-            ->andWhere('w.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

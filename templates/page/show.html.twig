@@ -14,7 +14,7 @@
 	
 	{% elseif page.slug.getContent(app.request.locale) == 'blog' %}
 		
-		{% include 'page/blog.html.twig' %}
+		{{ render(controller('App\\Controller\\BlogController::list', {'nmb': '*', 'vue': 'index', 'pagination': 4})) }}
 	
 	{% else %}
 		

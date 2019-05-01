@@ -3,16 +3,12 @@
 	namespace App\Controller;
 	
 	use App\Entity\Work;
-	use App\Form\WorkType;
 	use App\Repository\WorkRepository;
 	use Doctrine\ORM\Mapping as ORM;
-	use phpDocumentor\Reflection\DocBlock\Serializer;
 	use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Component\HttpFoundation\Response;
 	use Symfony\Component\Routing\Annotation\Route;
-	use Symfony\Component\Serializer\Encoder\JsonEncoder;
-	use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 	use JMS\Serializer\SerializerBuilder as SerializerBuilder;
 	/**
 	 * @Route({"en":"/work","fr":"/travail"},name="app_work_")
@@ -99,21 +95,19 @@
 			}
 		}
 
+	
+	    /**
+	     * @param \App\Repository\WorkRepository $workRepository
+	     * @param \App\Entity\Work               $work
+	     * @return \Symfony\Component\HttpFoundation\Response
+	     */
+	    public function similar(WorkRepository $workRepository,Work $work): Response
+	    {
+	        $tags=$work->getTags();
+	        return $this->render('work/similarworks.html.twig', [
+	            'works' => $workRepository->findByTags($tags),
+	            'work'=>$work
+	        ]);
+	    }
 
-    /**
-     * @param \App\Repository\WorkRepository $workRepository
-     * @param \App\Entity\Work               $work
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function similar(WorkRepository $workRepository,Work $work): Response
-    {
-        $tags=$work->getTags();
-        return $this->render('work/similarworks.html.twig', [
-            'works' => $workRepository->findByTags($tags),
-            'work'=>$work
-        ]);
-    }
-
-
- 
-}
+	}

@@ -15,7 +15,11 @@
                 {% for page in pages %}
                     <!--Menu-->
                     <li class="{% if req.attributes.get('id')==page.id %}active{% endif %}">
-                        <a href="{{path('app_page_show',{'id':page.id,'slug':page.slug,'_locale':req.locale})}}">{{page.name.getContent(app.request.locale)}}</a>
+                        {% if page.slug == 'blog' %}
+                            <a href="{{path('app_blog_index', {'nmb':'*','vue':'index', 'pagination': 4})}}">{{page.name.getContent(app.request.locale)}}</a>
+                        {% else %}
+                            <a href="{{path('app_page_show',{'id':page.id,'slug':page.slug,'_locale':req.locale})}}">{{page.name.getContent(app.request.locale)}}</a>
+                        {% endif %}
                     </li>
                   
                 {% endfor %}

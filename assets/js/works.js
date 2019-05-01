@@ -1,51 +1,38 @@
 
 $(document).ready(function() {
-    alert('portfolio');
-    /*$('#show_more').click(function() {
-        var url = $(this).attr('data-url');
-        $.get({
+    var offsetNmb = 6; //on ne prend pas les 6 premiers
+    var nmb = 5; // on peut changer le nombre des works à retourner
+    $('#noMore').hide();
+
+    $('#moreWorks').on('click', function(event) {
+        event.preventDefault(); //Clicking on a link, prevent the link from following the URL
+
+        let url = $(this).attr('data-url'); //recupere la route : ex: /en/work/more ou /fr/travail/more
+
+        $.ajax({
             url: url,
-            method: 'get',
+            method: 'POST',
+            dataType: 'json',
             data: {
-                prenom: 'Flamby'
+                offsetNmb: offsetNmb,
+                vue: 'ajoutWorks',
+                nmb: nmb
             },
             success: function (reponseSrv) {
-                alert(reponseSrv)
+                //attache code HTML à <ul> avec les autres images
+                $('#worksGallery').append(reponseSrv.content);
+                offsetNmb += nmb; // pour la prochaine requete le nombre des works pas retournés augemente
+
+                //si false - ça veut dire il n' y plus des images à retourner
+                if(reponseSrv === false){
+                    $('#moreWorks').hide();
+                    $('#noMore').show();
+                }
+
             },
-            error: function () {
+            error: function() {
                 window.alert("Problème durant la transaction...");
             }
         })
-    });*/
-});
-/*
-$(document).ready(function(){
-
-    $('#show_more').click(function(){
-        var btn_more = $(this);
-        var count_show = parseInt($(this).attr('count_show'));
-        var count_add  = $(this).attr('count_add');
-        btn_more.val('Подождите...');
-
-        $.ajax({
-            url: "ajax.php", // куда отправляем
-            type: "post", // метод передачи
-            dataType: "json", // тип передачи данных
-            data: { // что отправляем
-                "count_show":   count_show,
-                "count_add":    count_add
-            },
-            // после получения ответа сервера
-            success: function(data){
-                if(data.result == "success"){
-                    $('#content').append(data.html);
-                    btn_more.val('Показать еще');
-                    btn_more.attr('count_show', (count_show+3));
-                }else{
-                    btn_more.val('Больше нечего показывать');
-                }
-            }
-        });
     });
-
-}); */
+});

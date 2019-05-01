@@ -34,7 +34,7 @@
             <div class="col-md-12">
                 <div class="footer-copyright">
                     &copy; 2014 <a href="http://www.vactualart.com/portfolio-item/basica-a-free-html5-template/">Basica</a> Bootstrap HTML Template. By <a href="http://www.vactualart.com">Vactual Art</a>.
-                    | <a href="#">Administration</a>
+                    | <a href="{{path('easyadmin')}}">Administration</a>
                 </div>
             </div>
         </div>
@@ -62,8 +62,9 @@
        -->
 	<script src="{{ asset('js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
     
-    {% if page is defined and page.slug.getContent(app.request.locale) == 'portfolio' %}
+    {% if (page is defined) and (page.slug.getContent(app.request.locale) == 'portfolio') %}
         <script src={{ asset('js/works.js') }}></script>
+        <script src={{ asset('js/pagination.min.js') }}></script>
     {% endif %}
     
 {% endblock %}

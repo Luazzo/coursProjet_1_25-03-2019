@@ -21,11 +21,15 @@ class BlogRepository extends ServiceEntityRepository
     
     public function findBlogsNmb($nmb)
     {
-        return $this->createQueryBuilder('b')
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults($nmb)
-            ->getQuery()
-            ->getResult()
+    	$qb = $this->createQueryBuilder('b');
+    	$qb -> orderBy('b.id', 'ASC');
+    	
+    	if($nmb != '*'){
+    		$qb -> setMaxResults($nmb);
+	    }
+    	
+        return $qb ->getQuery()
+	               ->getResult()
         ;
     }
 
