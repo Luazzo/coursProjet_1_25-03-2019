@@ -62,7 +62,7 @@
        -->
 	<script src="{{ asset('js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
     
-    {% if page.slug.getContent(app.request.locale) == 'portfolio' %}
+    {% if (page is defined) and (page.slug.getContent(app.request.locale) == 'portfolio') %}
         <script src={{ asset('js/works.js') }}></script>
     {% endif %}
     

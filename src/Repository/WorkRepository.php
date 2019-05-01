@@ -19,15 +19,15 @@ class WorkRepository extends ServiceEntityRepository
         parent::__construct($registry, Work::class);
     }
     
-    public function findWorksNmb($nmb){
+    /*public function findWorksNmb($nmb){
     	return $this->createQueryBuilder('w')
             ->orderBy('w.id', 'ASC')
             ->setMaxResults($nmb)
             ->getQuery()
             ->getResult()
         ;
-	}
-    public function findWorksNmbo($nmb, $offset){
+	}*/
+    public function findWorksNmb($nmb, $offset = null){
     	return $this->createQueryBuilder('w')
             ->orderBy('w.id', 'ASC')
             ->setMaxResults($nmb)

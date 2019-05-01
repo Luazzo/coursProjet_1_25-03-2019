@@ -1,3 +1,20 @@
 
 
-<p>offset = {{ vue }}</p>
+{% if works %}
+    {% for work in works %}
+            <div class="col-md-4 col-sm-6" style="height: 236px">
+                <figure>
+                    <img src="{{ asset('uploads/images/works/'~work.imageName) }}" alt="{{work.imageName}}">
+                    <figcaption>
+                     
+                        {% set mystring = work.name.getContent(app.request.locale) %}
+                        <h3>{{ mystring|striptags|trim|truncate(15, true, '...') }}</h3>
+    
+                        <span>{{ work.client.username }}</span><br/>
+                        <a href="{{path('app_work_show', {id : work.id, slug: work.slug.getContent(app.request.locale)}) }}">{% trans %}take_a_look{% endtrans %}</a>
+                    </figcaption>
+                </figure>
+            </div>
+        
+    {% endfor %}
+{% endif %}
