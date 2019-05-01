@@ -44,6 +44,9 @@ class PageController extends AbstractController
 	//si on passe {_local} et defaults: id:1 slug: 'accueil'
 	//la page de symfony s'affiche
 	//alors cette fonction est pour faire redirection vers page_show avec des parametres
+	/**
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
 	public function home()
     {
         return $this->redirectToRoute('app_page_show',['id'=>1,'slug'=>'accueil','_locale'=>'fr']);

@@ -14,12 +14,15 @@ use Knp\Component\Pager\PaginatorInterface;
  */
 class BlogController extends AbstractController
 {
-    /**
-     * $nmb == '*' => return ALL BLOGS
-     * $pagination == null => pas de pagination
-     * $vue == quelle template choisir
-     *
-     */
+	/**
+	 * $nmb == '*' => return ALL BLOGS
+	 * $pagination == null => pas de pagination
+	 * $vue == quelle template choisir
+	 * @param BlogRepository $blogRepository
+	 * @param $nmb
+	 * @param $vue
+	 * @return Response
+	 */
     public function list(BlogRepository $blogRepository, $nmb, $vue): Response
     {
     	
@@ -27,11 +30,15 @@ class BlogController extends AbstractController
             'blogs' => $blogRepository->findBlogsNmb($nmb)
         ]);
     }
-    
-
-    /**
-     * @Route("/", name="blog_index", methods={"GET"})
-     */
+	
+	
+	/**
+	 * @Route("/", name="blog_index", methods={"GET"})
+	 * @param PaginatorInterface $paginator
+	 * @param BlogRepository $blogRepository
+	 * @param Request $request
+	 * @return Response
+	 */
     public function index(PaginatorInterface $paginator, BlogRepository $blogRepository,Request $request): Response
     {
         $query=$blogRepository->findAll();
@@ -44,10 +51,12 @@ class BlogController extends AbstractController
             'blogs' => $pagination,
         ]);
     }
-    
-    /**
-     * @Route("/{id}-{slug}", name="blog_show", methods={"GET"})
-     */
+	
+	/**
+	 * @Route("/{id}-{slug}", name="blog_show", methods={"GET"})
+	 * @param Blog $blog
+	 * @return Response
+	 */
     public function show(Blog $blog): Response
     {
         return $this->render('blog/show.html.twig', [

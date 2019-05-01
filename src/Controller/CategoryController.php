@@ -13,26 +13,36 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CategoryController extends AbstractController
 {
-    /**
-     * @Route("/", name="index", methods={"GET"})
-     */
+	/**
+	 * @Route("/", name="index", methods={"GET"})
+	 * @param CategoryRepository $categoryRepository
+	 * @return Response
+	 */
     public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('category/index.html.twig', [
             'categories' => $categoryRepository->findAll(),
         ]);
     }
-    
-    public function list(CategoryRepository $categoryRepository, $nmb, $vue): Response
+	
+	/**
+	 * @param CategoryRepository $categoryRepository
+	 * @param $nmb
+	 * @param $vue
+	 * @return Response
+	 */
+	public function list(CategoryRepository $categoryRepository, $nmb, $vue): Response
     {
         return $this->render('category/'.$vue.'.html.twig', [
             'categories' => $categoryRepository->findCategoriesNmb($nmb)
         ]);
     }
-
-    /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
+	
+	/**
+	 * @Route("/{id}", name="show", methods={"GET"})
+	 * @param Category $category
+	 * @return Response
+	 */
     public function show(Category $category): Response
     {
         return $this->render('category/show.html.twig', [
