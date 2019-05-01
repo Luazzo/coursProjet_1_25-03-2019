@@ -16,8 +16,8 @@
 			         
 			<!--chargement de works-->
 			{{ render(controller(
-				'App\\Controller\\WorkController::index',
-				{ 'nmb': 6 }
+				'App\\Controller\\WorkController::list',
+				{ 'nmb': 6, 'vue':'index' }
 				))
 			}}
         

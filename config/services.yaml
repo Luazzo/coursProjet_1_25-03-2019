@@ -28,9 +28,11 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-
+    # Pour réduire intelligemment une chaîne de texte contenant du HTML en langage Twig, il est possible d’utiliser les filtres striptags, trim et truncate.
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }
 
 
 

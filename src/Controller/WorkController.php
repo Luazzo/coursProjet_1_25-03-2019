@@ -26,7 +26,7 @@ class WorkController extends AbstractController
     public function list(WorkRepository $workRepository, $nmb, $vue): Response
     {
         return $this->render('work/'.$vue.'.html.twig', [
-            'works' => $workRepository->findWorksNmb($nmb),
+            'works' => $workRepository->findWorksNmb($nmb)
         ]);
     }
 
@@ -37,8 +37,29 @@ class WorkController extends AbstractController
     public function show(Work $work): Response
     {
         return $this->render('work/show.html.twig', [
-            'work' => $work,
+            'work' => $work
         ]);
+    }
+    /**
+     * @Route("/more", name="more", methods={"POST"})
+     */
+    public function moreWorks(WorkRepository $workRepository, Request $request): Response
+    {
+    	$offset = $request->request->get('offsetNmb');
+    	$vue = $request->request->get('vue');
+    	$nmb = $request->request->get('nmb');
+    	
+    	$works = $workRepository->findWorksNmb($nmb);
+    	/*$html = $this->render('work/'.$vue.'.html.twig', [
+            'works' => $works
+        ]);
+    	echo($offset);die();*/
+    	/*return $this->render('work/'.$vue.'.html.twig', [
+            'works' => $workRepository->findWorksNmbo($nmb, $offset)
+        ]);dump($request); die();;
+    	$vue = */
+    	return $this -> json($nmb);
+    
     }
 
 
